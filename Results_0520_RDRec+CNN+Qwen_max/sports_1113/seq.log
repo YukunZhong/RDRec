@@ -1,0 +1,31 @@
+nohup: ignoring input
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+/home/zhongyikun/RdRecNew/seq.py:103: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model = torch.load(f).to(device)
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+----------------------------------------ARGUMENTS----------------------------------------
+data_dir                                 ./data/sports/
+model_version                            0
+batch_size                               32
+cuda                                     True
+checkpoint                               ./checkpoint_0520_max/sports_1113/
+num_beams                                20
+top_n                                    15
+----------------------------------------ARGUMENTS----------------------------------------
+[2025-05-22 01:39:15.639398]: Loading data
+[2025-05-22 01:39:17.831779]: Generating recommendations
+[2025-05-22 01:49:27.008997]: Evaluation
+[2025-05-22 01:49:27.479874]: HR@1  0.0354
+[2025-05-22 01:49:27.494385]: NDCG@1  0.0354
+[2025-05-22 01:49:27.507005]: HR@5  0.0519
+[2025-05-22 01:49:27.525156]: NDCG@5  0.0437
+[2025-05-22 01:49:27.542498]: HR@10  0.0589
+[2025-05-22 01:49:27.567026]: NDCG@10  0.0455

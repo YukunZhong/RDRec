@@ -1,0 +1,40 @@
+nohup: ignoring input
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+/home/zhongyikun/RdRecNew/exp.py:109: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model = torch.load(f).to(device)
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/zhongyikun/anaconda3/envs/RDRec/lib/python3.12/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+----------------------------------------ARGUMENTS----------------------------------------
+data_dir                                 ./data/toys/
+model_version                            0
+batch_size                               32
+cuda                                     True
+checkpoint                               ./checkpoint_0514/toy_1111/
+outf                                     generated.txt
+num_beams                                21
+num_beam_groups                          3
+min_len                                  10
+exp_len                                  100
+----------------------------------------ARGUMENTS----------------------------------------
+[2025-05-20 01:16:23.982653]: Loading data
+[2025-05-20 01:16:27.576288]: Generating text
+[2025-05-20 01:45:14.571387]: Evaluation
+[2025-05-20 01:46:08.810787]: BLEU-1 13.6055
+[2025-05-20 01:46:09.332615]: BLEU-4  2.1236
+[2025-05-20 01:46:09.972511]: rouge_1/f_score 14.0243
+[2025-05-20 01:46:09.972597]: rouge_1/r_score 14.8316
+[2025-05-20 01:46:09.972609]: rouge_1/p_score 14.9772
+[2025-05-20 01:46:09.972615]: rouge_2/f_score  3.6174
+[2025-05-20 01:46:09.972624]: rouge_2/r_score  3.9462
+[2025-05-20 01:46:09.972628]: rouge_2/p_score  3.8022
+[2025-05-20 01:46:09.972633]: rouge_l/f_score 11.2909
+[2025-05-20 01:46:09.972637]: rouge_l/r_score 13.1847
+[2025-05-20 01:46:09.972641]: rouge_l/p_score 13.0356
+[2025-05-20 01:46:10.259550]: Generated text saved to (./checkpoint_0514/toy_1111/generated.txt)

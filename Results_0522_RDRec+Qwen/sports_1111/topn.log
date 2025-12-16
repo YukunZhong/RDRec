@@ -1,0 +1,32 @@
+root@db50199ca952:~/lanyun/RDRec# python3 topn.py --cuda
+/root/miniconda/lib/python3.12/site-packages/transformers/utils/generic.py:441: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+----------------------------------------ARGUMENTS----------------------------------------
+data_dir                                 /root/lanyun/RDRec/data/sports/
+model_version                            0
+batch_size                               32
+cuda                                     True
+checkpoint                               ./pod_sports_1111/
+negative_num                             99
+num_beams                                20
+top_n                                    10
+----------------------------------------ARGUMENTS----------------------------------------
+[2025-05-16 19:03:10.851578]: Loading data
+/root/miniconda/lib/python3.12/site-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+/root/miniconda/lib/python3.12/site-packages/transformers/utils/generic.py:309: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+/root/miniconda/lib/python3.12/site-packages/transformers/utils/generic.py:309: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+[2025-05-16 19:03:22.959942]: Generating recommendations
+
+[2025-05-16 19:27:23.865214]: Evaluation
+
+[2025-05-16 19:27:24.074392]: HR@1  0.1011
+[2025-05-16 19:27:24.101339]: NDCG@1  0.1011
+[2025-05-16 19:27:24.124851]: HR@5  0.2364
+[2025-05-16 19:27:24.157406]: NDCG@5  0.1705
+[2025-05-16 19:27:24.188718]: HR@10  0.3191
+[2025-05-16 19:27:24.238607]: NDCG@10  0.1968

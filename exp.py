@@ -94,6 +94,16 @@ def generate():
     return idss_predict
 
 
+import transformers.generation.configuration_utils
+
+# Define a dummy CompileConfig to handle missing class during unpickling
+class CompileConfig:
+    def __init__(self, **kwargs):
+        pass
+
+transformers.generation.configuration_utils.CompileConfig = CompileConfig
+
+
 # Load the best saved model.
 with open(model_path, 'rb') as f:
     model = torch.load(f).to(device)

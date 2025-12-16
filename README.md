@@ -1,3 +1,54 @@
+# Whats New?
+## 1. Instruction
+### 1.1 How to use a Multi-GPU device?
+#### (a) set device number when testing
+        >> CUDA_VISIBLE_DEVICES=4 nohup python seq.py --data_dir ./data/{dataset}/ --cuda --batch_size 32 --checkpoint ./checkpoint/{dataset}/ > seq.log 2>&1 &
+        >> CUDA_VISIBLE_DEVICES=5 nohup python topn.py --data_dir ./data/{dataset}/ --cuda --batch_size 32 --checkpoint ./checkpoint/{dataset}/ > topn.log 2>&1 &
+        >> CUDA_VISIBLE_DEVICES=6 nohup python exp.py --data_dir ./data/{dataset}/ --cuda --batch_size 32 --checkpoint ./checkpoint/{dataset}/ > exp.log 2>&1 &
+#### (b) Pretrain the RDRec-New
+        >> nohup python pretrain.py --data_dir ./data/beauty/ --cuda --batch_size 64 --checkpoint ./checkpoint/beauty/ --ratio 1:1:1:3 > pretrain.log 2>&1 &
+
+### 1.2. How to replace the llama2 model with other LLMs (RDRec-New)?
+You can replace llama2 with other models in Stage1:Intersection Rationale Distillation(we use Qwen3-14B-AWQ) and you can get it easily by using our `./data_qwen_distillation/qwen_distillation.py`scripts.
+
+You need to download a Qwen model(or other model) from a source like `ModelScope` or `Hugging Face` beforehand.Then replace `{your_path}` with your local model path,replace `{input_path}{output_path}` according to your local file.
+
+```
+	>> cd data_qwen_distillation
+	>> python qwen_distillation.py \
+		--model_path={your_model_path} \
+		--input_json_path={input_path} \
+		--output_json_path={output_path} \
+		--max_batch_size=32 \
+		-- save_every_n_batches=50
+```
+## 2. Method 
+###  2.1. Short-range Attention Module with CNN
+
+replace ```./model/module.py``` with  ```./model/module_CNN.py```
+
+###  2.2. Qwen3：Improvement of the Base Model
+
+replace ```./data``` with ```./data_qwen_distillation```
+
+###  2.3. Two-stage Distillation
+
+- replace ```./pretrain.py``` with ```./pretrain.py_2stage```
+- replace ```./model/templates.py``` with ```./model/templates_2stage.py```
+- replace ```./utils/utils.py``` with ```./utils/utils_2stage.py```
+
+## 3. Results
+
+(a) Replication Results (```./Results_0508_RDRec```)
+
+(b) RDRec+CNN (```./Results_0514_RDRec+CNN_0.2```)
+
+(c) RDRec+Qwen3-14B (```./Results_0522_RDRec+Qwen```)
+
+(d) RDRec+CNN+Qwen3-14B (```./Results_0520_RDRec+CNN+Qwen_max```)
+
+---
+
 # RDRec (ACL'24)
 
 ## Paper - [[ArXiv]](https://arxiv.org/pdf/2405.10587) [[ACL Anthology]](https://aclanthology.org/2024.acl-short.6/)
@@ -14,7 +65,7 @@
 #### (a) Install llama 2 （download model weights and tokenizer）
         get the License from [the site](https://llama.meta.com/llama-downloads/)
         >> cd llama 
-	    >> ./download.sh (License required)
+        >> ./download.sh (License required)
         >> pip install -e .
 
 #### (b) Test llama 2 environment  (under ./llama )
@@ -48,7 +99,6 @@
 - All experiments, including rationale distillation, can be conducted on a **<u>single Nvidia GeForce RTX 3090 (24GB memory)</u>**. Reduce the batch size if you encounter an OOM error on some dataset.
 - There are some fluctuations in RDRec's results for sequential recommendations. We reported average results in 10-trial runs in the paper  (See [t_test.py](https://github.com/WangXFng/RDRec/blob/main/utils/t_test.py) for more details). If the results are not ideal, please pre-train the model once again. 
 - If you have any questions, please feel free to contact me at kaysenn@163.com.
-
 
 
 ## Citation

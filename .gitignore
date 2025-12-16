@@ -1,2 +1,5 @@
 .idea/*
 reranker/*
+
+# 忽略所有.pt文件
+*.pt
