@@ -1,4 +1,4 @@
-# Whats New?
+# What's New?
 ## 1. Instruction
 ### 1.1 How to use a Multi-GPU device?
 #### (a) set device number when testing
